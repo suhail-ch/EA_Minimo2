@@ -12,20 +12,21 @@
 <!-- Toggles in a List -->
 <ion-list>
   <ion-item>
-    <ion-label>Pepperoni</ion-label>
-    <ion-toggle [(ngModel)]="pepperoni" (ionChange)="change1()"></ion-toggle>
-    <h1 *ngIf="pepperoni"></h1>
+    <ion-label>Notificaciones</ion-label>
+    <ion-toggle [(ngModel)]="notificaciones" (ionChange)="change1()"></ion-toggle>
   </ion-item>
 
   <ion-item>
-    <ion-label>Sausage</ion-label>
-    <ion-toggle [(ngModel)]="sausage" (ionChange)="change2()"></ion-toggle>
+    <ion-label>Privacidad</ion-label>
+    <ion-toggle [(ngModel)]="privacidad" (ionChange)="change2()"></ion-toggle>
   </ion-item>
 
   <ion-item>
-    <ion-label>Mushrooms</ion-label>
-    <ion-toggle [(ngModel)]="mushrooms" (ionChange)="change3()"></ion-toggle>
+    <ion-label>Seguridad</ion-label>
+    <ion-toggle [(ngModel)]="seguridad" (ionChange)="change3()"></ion-toggle>
   </ion-item>
+
+  <ion-button (click)="aceptar()" color="danger" expand="block">Aceptar</ion-button>
 
 </ion-list>
 
