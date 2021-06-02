@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Admin from "../models/admin";
 import License from "../models/license"
+import Configuracion from "../models/configuracion";
 
     async function registerAdmin(req:Request, res:Response) {
         let admin = req.body;
@@ -30,6 +31,19 @@ import License from "../models/license"
         }
     }
 
+    const newConf = async (req: Request, res: Response) => {
+        const configuracion = new Configuracion({
+            "notificaciones": req.body.notificaciones,
+            "privacidad": req.body.privacidad,
+            "seguridad": req.body.seguridad
+        });
+        configuracion.save().then((data) => {
+            return res.status(201).json(data);
+        }).catch((err) => {
+            return res.status(500).json(err);
+        })
+    }
+
     async function checklicense (req:Request, res:Response) {
         let license = req.params.licenseCode;
         let checkLicense = await License.findOne({"licenseCode": license});
@@ -55,4 +69,4 @@ import License from "../models/license"
         }
     }
 
-export default { registerAdmin, checklicense, newLicense };
+export default { registerAdmin, checklicense, newLicense, newConf};
