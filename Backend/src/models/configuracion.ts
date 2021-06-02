@@ -18,4 +18,4 @@ export interface IConf extends Document {
     seguridad: boolean;
 }
 
-export default mongoose.model<IConf>('conf', ConfiguracionSchema);
+export default mongoose.model<IConf>('new-config', ConfiguracionSchema);

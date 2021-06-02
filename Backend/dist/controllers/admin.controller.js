@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const admin_1 = __importDefault(require("../models/admin"));
 const license_1 = __importDefault(require("../models/license"));
+const configuracion_1 = __importDefault(require("../models/configuracion"));
 function registerAdmin(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let admin = req.body;
@@ -44,6 +45,18 @@ function registerAdmin(req, res) {
         }
     });
 }
+const newConf = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const configuracion = new configuracion_1.default({
+        "notificaciones": req.body.notificaciones,
+        "privacidad": req.body.privacidad,
+        "seguridad": req.body.seguridad
+    });
+    configuracion.save().then((data) => {
+        return res.status(201).json(data);
+    }).catch((err) => {
+        return res.status(500).json(err);
+    });
+});
 function checklicense(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let license = req.params.licenseCode;
@@ -69,4 +82,4 @@ const newLicense = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         return res.status(500).json(err);
     }
 });
-exports.default = { registerAdmin, checklicense, newLicense };
+exports.default = { registerAdmin, checklicense, newLicense, newConf };
