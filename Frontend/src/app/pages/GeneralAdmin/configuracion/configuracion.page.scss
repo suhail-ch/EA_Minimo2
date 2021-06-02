@@ -1,0 +1,42 @@
+ion-toggle {
+    --background: #000;
+    --background-checked: #7a49a5;
+  
+    --handle-background: #7a49a5;
+    --handle-background-checked: #000;
+}
+
+ion-toggle {
+    --handle-background-checked: #fff url(/assets/power-icon.png) no-repeat center / contain;
+}
+
+ion-toggle::before {
+    position: absolute;
+  
+    top: 16px;
+    left: 10px;
+  
+    content: "ON";
+  
+    color: white;
+    font-size: 8px;
+  
+    z-index: 1;
+}
+
+ion-toggle {
+    width: 40px;
+}
+
+ion-toggle {
+    height: 15px;
+}
+
+ion-toggle {
+    --handle-spacing: 0px;
+    --handle-height: 100%;
+}
+
+ion-toggle {
+    --handle-border-radius: 14px 4px 4px 14px;
+}

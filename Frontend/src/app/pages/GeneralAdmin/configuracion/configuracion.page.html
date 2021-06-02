@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Configuracion de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!-- Toggles in a List -->
+<ion-list>
+  <ion-item>
+    <ion-label>Notificaciones</ion-label>
+    <ion-toggle [(ngModel)]="notificaciones" (ionChange)="change1()"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Privacidad</ion-label>
+    <ion-toggle [(ngModel)]="privacidad" (ionChange)="change2()"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Seguridad</ion-label>
+    <ion-toggle [(ngModel)]="seguridad" (ionChange)="change3()"></ion-toggle>
+  </ion-item>
+
+  <ion-button (click)="aceptar()" color="danger" expand="block">Aceptar</ion-button>
+
+</ion-list>
+
+</ion-content>
